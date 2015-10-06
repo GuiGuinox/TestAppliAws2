@@ -9,7 +9,26 @@ server.route([
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('to get prime numbers , go to /calculate/[Number]');
+
+            var i = 2;
+            var k = 2;
+            var premiers = [];// contient les nb premiers
+            var max = 50000;
+            var ok = true;
+            while(i < max) {// tester chaque nb
+                ok = true;// remettre ok à true
+                k = 2;// remettre k à 2
+                while(k < i && ok) {// tester si i est divisible par k
+                    if(i % k == 0)// si i divisé par k est entier
+                        ok = false;// i n'est pas premier
+                    k ++;// incrémenter k
+                }
+                if(ok)// si i est premier...
+                    premiers.push(i);// on rajoute i dans le tableau
+                i ++;
+            }
+
+            reply("here are the prime numbers between 2 and 50000 . For more go to /calculate/[number]"+ premiers);
     }
   },
   {
