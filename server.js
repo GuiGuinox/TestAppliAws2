@@ -9,7 +9,7 @@ server.route([
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('Hello, hapi!');
+        reply('to get prime numbers , go to /calculate/[Number]');
     }
   },
   {
